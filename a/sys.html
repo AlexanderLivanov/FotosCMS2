@@ -1,0 +1,45 @@
+<div style="text-align: center; margin-top: 50px">
+  <h3>Текст</h3>
+  <textarea id="ti1" cols="150" rows="5">
+Hung consisted began believing seen visited much travelling having. </textarea
+  ><br />
+  <h3>Текст(bin)</h3>
+  <textarea id="ti2" cols="150" rows="5"></textarea><br />
+  <h3>Seed</h3>
+  <textarea id="ti3" cols="150" rows="5"></textarea>
+  <h3>Seed(bin)</h3>
+  <textarea id="ti4" cols="150" rows="5"></textarea><br />
+  <p></p>
+  <button
+    onClick="convert(document.getElementById('ti1').value, document.getElementById('ti2'), document.getElementById('ti3'));"
+  >
+    Convert!
+  </button>
+</div>
+
+<script>
+  function convert(input, output, seed) {
+    output.value = "";
+    for (var i = 0; i < input.length; i++) {
+      output.value += input[i].charCodeAt(0).toString(2) + " ";
+    }
+
+    function makeid(length) {
+      let result = "";
+      const characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-=";
+      const charactersLength = characters.length;
+      let counter = 0;
+      while (counter < length) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+        counter += 1;
+      } 
+      return result;
+    }
+
+    seed.value = makeid(input.length);
+    convert(seed.value, document.getElementById('ti4'));
+  }
+</script>
