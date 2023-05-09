@@ -12,14 +12,14 @@
     <input
       type="button"
       value="Готово"
-      onclick="download(sha256(document.getElementById('userpasswd').value), 'apasswd.txt', 'text/plain');"
+      onclick="download('var apasswd_hash = \'' + sha256(document.getElementById('userpasswd').value) + '\';', 'apasswd.js', 'text/plain');"
     />
     <div id="placeholder-text" style="display: none">
       <p>
         Загрузите скачанный файл в директорию:
         <code>корень_сайта/a/security/</code>
       </p>
-      <p>Проверьте, что файл имеет имя: <code>apasswd.txt</code></p>
+      <p>Проверьте, что файл имеет имя: <code>apasswd.js</code></p>
       <a href="step2.html">Дальше</a>
     </div>
 
