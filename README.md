@@ -1,4 +1,8 @@
 # FotosCMS2
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/AlexanderLivanov/FotosCMS2)
+![GitHub watchers](https://img.shields.io/github/watchers/AlexanderLivanov/FotosCMS2?style=social)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/AlexanderLivanov/FotosCMS2)
+
 :exclamation: Система ещё в разработке
 ### 1. Преимущества
 - система не требует Apach, Nginx и т.п
