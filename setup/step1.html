@@ -7,12 +7,40 @@
     <title>Создание аккаунта</title>
   </head>
   <body>
+    <p>Придумайте логин:</p>
+    <input type="text" id="userlogin" placeholder="ваш логин..." />
     <p>Придумайте пароль:</p>
-    <input type="text" id="userpasswd" placeholder="ваш пароль..." />
+    <div class="password">
+      <input type="password" id="userpasswd" placeholder="ваш пароль..." />
+      <a
+        href="#"
+        class="password-control"
+        onclick="return show_hide_password(this);"
+        ><svg
+          style="vertical-align: middle; color: black"
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-eye"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+          <path
+            d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"
+          ></path></svg
+      ></a>
+    </div>
+    <br />
     <input
       type="button"
       value="Готово"
-      onclick="download('var apasswd_hash = \'' + sha256(document.getElementById('userpasswd').value) + '\';', 'apasswd.js', 'text/plain');"
+      onclick="download('var alogin = \'' + sha256(document.getElementById('userlogin').value) + '\';\nvar apasswd_hash = \'' + sha256(document.getElementById('userpasswd').value) + '\';', 'apasswd.js', 'text/plain');"
     />
     <div id="placeholder-text" style="display: none">
       <p>
@@ -24,6 +52,18 @@
     </div>
 
     <script>
+      function show_hide_password(target) {
+        var input = document.getElementById("userpasswd");
+        if (input.getAttribute("type") == "password") {
+          target.classList.add("view");
+          input.setAttribute("type", "text");
+        } else {
+          target.classList.remove("view");
+          input.setAttribute("type", "password");
+        }
+        return false;
+      }
+
       function download(content, fileName, contentType) {
         var a = document.createElement("a");
         var file = new Blob([content], { type: contentType });

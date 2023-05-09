@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content="Hugo 0.111.3" />
     <title>Вход</title>
+    <script src="security/apasswd.js"></script>
+    <script src="sys/hash_alg.js"></script>
 
     <link
       href="./form_files/bootstrap.min.css"
@@ -165,7 +167,7 @@
             class="form-control"
             id="floatingInput"
           />
-          <label for="floatingInput">Адрес электронной почты</label>
+          <label for="floatingInput">Логин</label>
         </div>
         <div class="form-floating">
           <input
@@ -181,7 +183,9 @@
     </main>
     <script>
       function checkCreds(){
-        if(document.getElementById('floatingInput').value === 'admin' && document.getElementById('floatingPassword').value === 'admin'){
+        attemptedLogin = document.getElementById('floatingInput').value;
+        attemptedPasswd = document.getElementById('floatingPassword').value;
+        if(sha256(attemptedLogin) === alogin && sha256(attemptedPasswd) === apasswd_hash){
           window.location.replace("index.html");
         }else{
           document.getElementById('login-error-msg').style.visibility = 'visible';
