@@ -186,6 +186,7 @@
         attemptedLogin = document.getElementById('floatingInput').value;
         attemptedPasswd = document.getElementById('floatingPassword').value;
         if(sha256(attemptedLogin) === alogin && sha256(attemptedPasswd) === apasswd_hash){
+          localStorage.setItem('authFlag', true);
           window.location.replace("index.html");
         }else{
           document.getElementById('login-error-msg').style.visibility = 'visible';
