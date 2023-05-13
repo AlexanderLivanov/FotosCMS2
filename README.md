@@ -3,9 +3,9 @@
 ![GitHub watchers](https://img.shields.io/github/watchers/AlexanderLivanov/FotosCMS2?style=social)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/AlexanderLivanov/FotosCMS2)
 
+
 :exclamation: Система ещё в разработке
 ### 1. Преимущества
-- система не требует Apach, Nginx и т.п
 - логин и пароль хранятся в формате SHA-256
 - сайт не использует php, поэтому не будут работать реверс-шеллы
 
