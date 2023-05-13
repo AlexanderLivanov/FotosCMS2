@@ -3,6 +3,7 @@
 ![GitHub watchers](https://img.shields.io/github/watchers/AlexanderLivanov/FotosCMS2?style=social)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/AlexanderLivanov/FotosCMS2)
 
+
 :exclamation: Система ещё в разработке
 ### 1. Преимущества
 - логин и пароль хранятся в формате SHA-256
