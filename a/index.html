@@ -13,7 +13,7 @@
     </div>
     <script>
         let contentToShow = document.getElementById("main-container");
-        if (localStorage.getItem("authFlag").toString() === 'true'){
+        if (localStorage.getItem("authFlag") == 'true'){
             $("#mainContainer").show();
         }else{
             $("#mainContainer").hide();
