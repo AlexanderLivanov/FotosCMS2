@@ -1,4 +1,4 @@
-// thanks for stackoverflow))  
+// thanks for stackoverflow
 
 var sha256 = function sha256(ascii) {
     function rightRotate(value, amount) {
