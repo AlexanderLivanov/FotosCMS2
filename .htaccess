@@ -6,3 +6,13 @@ RewriteRule ^ %{REQUEST_URI}.html [NC,L]
 
 php_value max_execution_time 20
 php_value max_input_time 20
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+ # если запрашиваемый объект с дописанным расширением php - файл
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+ # делаем замену с дописыванием .php
+
+RewriteRule ^(.*)$ $1.php
