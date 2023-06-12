@@ -1,0 +1,30 @@
+.main-container {
+    text-align: center;
+    padding: 10%;
+}
+
+.form-element {
+    padding: 10px;
+}
+
+.form-element input {
+    padding: 5px;
+    outline: none;
+    background-color: #f8f8f8;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+button {
+    padding: 5px;
+    outline: none;
+    width: auto;
+    background-color: #f8f8f8;
+    border: 2px solid black;
+}
+
+p a {
+    color: black;
+    text-decoration: none;
+    border-bottom: 3px dotted #337ab7;
+}

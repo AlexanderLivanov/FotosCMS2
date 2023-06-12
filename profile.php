@@ -2,17 +2,29 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $_SESSION['user_name']; ?> — Профиль</title>
+    <title><?php if (!empty($_SESSION)) {
+                echo $_SESSION['user_name'] . ' — Профиль';
+            } else {
+                echo ('Вы не вошли в аккаунт');
+            } ?>
+    </title>
 </head>
+
 <body>
     <?php
-    require_once('a/sys/header.php'); 
-    
+    require_once('a/sys/header.php');
+    if (!empty($_SESSION)) {
+        echo $_SESSION['user_name'] . ' — Профиль';
+    } else {
+        echo ('Вы не вошли в аккаунт');
+        header("location: login");
+    }
     ?>
 
-    hi
 </body>
+
 </html>

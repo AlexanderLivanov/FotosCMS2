@@ -10,7 +10,9 @@
 </head>
 
 <body>
-  <?php require_once('a/sys/header.php'); ?>
+  <?php require_once('a/sys/header.php');
+        require_once('a/sys/preloader.php');
+  ?>
   <div id="wrapper">
     <div class="content">
       <h2>Последние посты</h2>
