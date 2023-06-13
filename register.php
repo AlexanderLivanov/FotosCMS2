@@ -10,9 +10,6 @@ if (isset($_POST['register'])) {
     $query = $connection->prepare("SELECT * FROM users WHERE username=:username");
     $query->bindParam("username", $username, PDO::PARAM_STR);
     $query->execute();
-    // if ($query->rowCount() > 0) {
-    //     echo '<p class="error">Этот ник уже занят!</p>';
-    // }
     if ($query->rowCount() == 0) {
         $query = $connection->prepare("INSERT INTO users(username,password) VALUES (:username,:password_hash)");
         $query->bindParam("username", $username, PDO::PARAM_STR);

@@ -134,62 +134,6 @@ section {
     height: auto;
 }
 
-footer {
-    border-top: 2px solid black;
-}
-
-#footer {
-    margin: auto;
-    padding: 10px 0;
-    height: 90px;
-}
-
-footer a {
-    color: #777;
-    text-decoration: none;
-    transition: all 0.6s;
-}
-
-footer a:hover {
-    color: #0072ff;
-    text-decoration: none;
-    transition: all 0.6s;
-}
-
-#sitemap {
-    width: 150px;
-    float: left;
-    margin-left: 80px;
-    padding-right: 15px;
-}
-
-#sitemap div {
-    display: inline-block;
-}
-
-#sitemap div+div {
-    margin-left: 40px;
-}
-
-#sitemap a {
-    display: block;
-    text-decoration: none;
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-#sitemap a:hover {
-    text-decoration: none;
-}
-
-#footer-logo {
-    float: right;
-    margin-top: 20px;
-    font-size: 20px;
-    text-align: right;
-    margin-right: 160px;
-}
-
 * {
     padding: 0;
 }
