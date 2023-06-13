@@ -6,16 +6,18 @@ if (isset($_POST['register'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
-    $time = $current_time;
+    $tm = $current_time;
     $query = $connection->prepare("SELECT * FROM users WHERE username=:username");
     $query->bindParam("username", $username, PDO::PARAM_STR);
     $query->execute();
     if ($query->rowCount() == 0) {
-        $query = $connection->prepare("INSERT INTO users(username,password) VALUES (:username,:password_hash)");
+        $query = $connection->prepare("INSERT INTO users(username,password, registered) VALUES (:username, :password_hash, :tm)");
         $query->bindParam("username", $username, PDO::PARAM_STR);
         $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
+        $query->bindParam("tm", $tm, PDO::PARAM_STR);
         $query->execute();
         if ($query) {
+            mkdir('content/' . $username);
             echo '<p class="success">Регистрация прошла успешно!</p>';
             echo 'Регистрация прошла успешно. Сейчас вы будете перенаправлены на главную страницу...';
             echo '<script language="javascript">';

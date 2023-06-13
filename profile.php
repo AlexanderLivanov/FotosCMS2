@@ -18,7 +18,8 @@
     <?php
     require_once('a/sys/header.php');
     if (!empty($_SESSION)) {
-        echo $_SESSION['user_name'] . ' — Профиль';
+        echo $_SESSION['user_name'] . ' — Профиль' . '<br>';
+        require_once('a/sys/userset.php');
     } else {
         echo ('Вы не вошли в аккаунт');
         header("location: login");
