@@ -6,6 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" />
     <title></title>
+    <style>
+        .search-button {
+            background: none;
+            border: none;
+            color: gray;
+            cursor: pointer;
+            transition: all 0.6s;
+        }
+
+        .search-button:hover {
+            background: none;
+            border: none;
+            color: #0072ff;
+            cursor: pointer;
+            transition: all 0.6s;
+        }
+    </style>
+    <link rel="stylesheet" href="css/selectize.default.css">
+    <script src="js/jquery-1.4.2.min.js"></script>
+    <script src="js/microplugin.js"></script>
+    <script src="js/sifter.js"></script>
 </head>
 
 <body>
@@ -20,6 +41,18 @@
                 </svg></span></label>
         <nav class="nav">
             <ul class="menu">
+                <li><a><input type="text" placeholder="Поиск пользователей" style="width: 250px; height: 25px; outline:none; border: none; border-bottom: 2px solid #0072ff;">
+                        <button class="search-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-search" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+                                <path d="M6 21v-2a4 4 0 0 1 4 -4h1.5"></path>
+                                <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                <path d="M20.2 20.2l1.8 1.8"></path>
+                            </svg>
+                        </button>
+                    </a>
+                </li>
                 <li><a href="/">Главная</a></li>
                 <li><a href="gallery">Галерея</a></li>
                 <li><a href="posts">Посты</a></li>
