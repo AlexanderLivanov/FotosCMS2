@@ -1,4 +1,9 @@
 <?php
+
+// PDO Connect
+
+// ! Change here:
+
 define('USER', 'root');
 define('PASSWORD', '');
 define('HOST', 'localhost');
@@ -8,3 +13,13 @@ try {
 } catch (PDOException $e) {
     exit("Error: " . $e->getMessage());
 }
+
+// MySQLi connect(Legacy)
+
+// ! And change here:
+
+$host = 'localhost'; 
+$user = 'root';   
+$pass = '';
+$db_name = 'fotoscms';  
+$link = mysqli_connect($host, $user, $pass, $db_name);
