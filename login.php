@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('a/sys/cfg.php');
 if (isset($_POST['login'])) {
   $username = $_POST['username'];

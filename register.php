@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once('a/sys/cfg.php');
 require_once('a/sys/time.php');
 if (isset($_POST['register'])) {

@@ -4,13 +4,16 @@ require_once('cfg.php');
 
 $users_arr = [];
 
+if(empty($_SESSION)){
+    header('location: login');
+}
+
 $sql = mysqli_query($link, 'SELECT `id`, `username` FROM users');
 while ($result = mysqli_fetch_array($sql)) {
     $username = $result['username'];
     array_push($users_arr, $username);
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,23 +22,9 @@ while ($result = mysqli_fetch_array($sql)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" />
     <title></title>
-    <style>
-        .search-button {
-            background: none;
-            border: none;
-            color: gray;
-            cursor: pointer;
-            transition: all 0.6s;
-        }
-
-        .search-button:hover {
-            background: none;
-            border: none;
-            color: #0072ff;
-            cursor: pointer;
-            transition: all 0.6s;
-        }
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -51,11 +40,11 @@ while ($result = mysqli_fetch_array($sql)) {
         <nav class="nav">
             <ul class="menu">
                 <li><a>
-                        <select id="js-selectize" name="users" placeholder="Поиск пользователей" style="width:250px; height: 25px; outline:none; border: none; border-bottom: 2px solid #0072ff;">
+                        <select id="js-selectize" name="users" placeholder="Поиск пользователей" style="width:250px; height: 25px; outline:none; border: none; border-bottom: 2px solid #0072ff; vertical-align: middle; outline: none;">
                             <option value="" disabled selected>Поиск пользователей...</option>
                             <?php
                             for ($i = 0; $i < count($users_arr); $i++) {
-                                echo ('<option value="">' . $users_arr[$i] . '</option>"');
+                                echo ('<option value="' . $users_arr[$i] . '">' . $users_arr[$i] . '</option>"');
                             }
                             ?>
                         </select>
@@ -84,9 +73,12 @@ while ($result = mysqli_fetch_array($sql)) {
         <a href="#" class="w3-bar-item w3-button">Поддержать монеткой</a>
 
     </div>
+
     <script>
         $(document).ready(function() {
-            $('.js-selectize').selectize();
+            $('#js-selectize').selectize({
+                sortField: 'text'
+            });
         });
     </script>
 </body>
