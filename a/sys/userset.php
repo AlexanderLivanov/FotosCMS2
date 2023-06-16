@@ -13,7 +13,7 @@ echo '<h2>ID: ';
 print_r($result['id']);
 echo '</h2>';
 
-echo('<h3>Присоединлся к нам ' . $result["registered"] . '</h3>');
+echo('<h3>Присоединился к нам ' . $result["registered"] . '</h3>');
 ?>
 
 <!DOCTYPE html>

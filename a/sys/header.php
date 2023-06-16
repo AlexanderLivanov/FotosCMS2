@@ -4,10 +4,6 @@ require_once('cfg.php');
 
 $users_arr = [];
 
-if(empty($_SESSION)){
-    header('location: login');
-}
-
 $sql = mysqli_query($link, 'SELECT `id`, `username` FROM users');
 while ($result = mysqli_fetch_array($sql)) {
     $username = $result['username'];

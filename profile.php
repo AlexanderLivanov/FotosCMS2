@@ -20,7 +20,7 @@
         require_once('a/sys/userset.php');
     } else {
         echo ('Вы не вошли в аккаунт');
-        //header("location: login");
+        header("location: login");
     }
     ?>
 
