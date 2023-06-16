@@ -36,11 +36,6 @@ while ($result = mysqli_fetch_array($sql)) {
             transition: all 0.6s;
         }
     </style>
-    <link rel="stylesheet" href="css/selectize.default.css">
-    <script src="js/jquery-1.4.2.min.js"></script>
-    <script src="js/microplugin.js"></script>
-    <script src="js/sifter.js"></script>
-    <script src="js/selectize.js"></script>
 </head>
 
 <body>
@@ -56,9 +51,10 @@ while ($result = mysqli_fetch_array($sql)) {
         <nav class="nav">
             <ul class="menu">
                 <li><a>
-                        <select class="js-selectize" name="users" placeholder="Поиск пользователей" style="width:250px; height: 25px; outline:none; border: none; border-bottom: 2px solid #0072ff;">
+                        <select id="js-selectize" name="users" placeholder="Поиск пользователей" style="width:250px; height: 25px; outline:none; border: none; border-bottom: 2px solid #0072ff;">
+                            <option value="" disabled selected>Поиск пользователей...</option>
                             <?php
-                            for($i = 0; $i < count($users_arr); $i++){
+                            for ($i = 0; $i < count($users_arr); $i++) {
                                 echo ('<option value="">' . $users_arr[$i] . '</option>"');
                             }
                             ?>
@@ -88,6 +84,11 @@ while ($result = mysqli_fetch_array($sql)) {
         <a href="#" class="w3-bar-item w3-button">Поддержать монеткой</a>
 
     </div>
+    <script>
+        $(document).ready(function() {
+            $('.js-selectize').selectize();
+        });
+    </script>
 </body>
 
 </html>
