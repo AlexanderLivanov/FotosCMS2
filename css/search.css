@@ -1,0 +1,36 @@
+.search {
+    height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.search input {
+    width: 200px;
+    border: none;
+    border-bottom: 2px solid #0072ff;
+}
+
+.search input:focus {
+    width: 200px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #0072ff;
+}
+
+.search input:hover {
+    width: 200px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #0072ff;
+}
+
+#search-btn {
+    background-color: #0072ff;
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    height: 20px;
+    border-radius: 0px 50px 50px 0px;
+    color: white;
+}

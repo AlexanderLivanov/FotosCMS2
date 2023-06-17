@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="img/icon.png" />
-  <script src="a/sys/js/jquery-1.4.2.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/search.css">
 <title>FotosCMS</title>
 </head>
 
 <body>
-  <?php require_once('a/sys/header.php'); ?>
-  <?php
+  <?php require_once('a/sys/header.php');
   require_once('a/sys/preloader.php');
   ?>
   <div id="wrapper">
@@ -91,13 +91,6 @@
         document.body.classList.remove('loaded_hiding');
       }, 500);
     }
-  </script>
-  <script>
-    $(document).ready(function() {
-      $('#js-selectize').selectize({
-        sortField: 'text'
-      });
-    });
   </script>
 </body>
 

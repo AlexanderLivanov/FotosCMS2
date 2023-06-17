@@ -18,20 +18,14 @@
 
 header {
     background-color: white;
-    width: 90%;
+    width: 100%;
     height: auto;
-    position: sticky;
     padding: 5px;
     margin-bottom: 20px;
     border-bottom: 2px solid black;
     position: sticky;
     top: 0;
     width: 100%;
-}
-
-form[name="search"] {
-    float: right;
-    text-align: right;
 }
 
 nav a {
@@ -46,7 +40,6 @@ nav ul {
 @media (max-width: 992px) {
     .nav ul {
         background-color: aliceblue;
-        border: 1px dotted #0072ff;
         width: 99%;
         margin-right: 5px;
         margin-left: 5px;
