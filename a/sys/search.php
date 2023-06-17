@@ -15,7 +15,7 @@ while ($result = mysqli_fetch_array($sql)) {
     <link rel="stylesheet" href="css/search.css">
 </head>
 <div class="search">
-    <form action="viewprofile" method="POST">
+    <form action="explore" method="POST">
         <input type="text" placeholder="Введите имя пользователя..." name="username">
         <input type="submit" value="Поиск" id="search-btn">
     </form>
