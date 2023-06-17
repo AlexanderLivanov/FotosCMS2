@@ -233,7 +233,7 @@ ul {
     top: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
     .nav {
         max-height: none;
         background-color: transparent;
@@ -259,7 +259,7 @@ ul {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     aside {
         visibility: hidden;
     }
@@ -277,7 +277,7 @@ ul {
     overflow: auto
 }
 
-@media (min-width:993px) {
+@media (min-width:1000px) {
     .w3-modal-content {
         width: 900px
     }
@@ -291,7 +291,7 @@ ul {
     }
 }
 
-@media (max-width:992px) {
+@media (max-width:1000px) {
     .w3-sidebar {
         display: none;
         visibility: hidden;

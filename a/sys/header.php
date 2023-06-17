@@ -22,9 +22,9 @@
             <ul class="menu">
                 <li>
                     <a>
-                    <?php
-                    require_once('a/sys/search.php');
-                    ?>
+                        <?php
+                        require_once('a/sys/search.php');
+                        ?>
                     </a>
                 </li>
                 <li><a href="/">Главная</a></li>
@@ -50,4 +50,5 @@
         <a href="#" class="w3-bar-item w3-button">Поддержать монеткой</a>
 
     </div>
+
 </html>

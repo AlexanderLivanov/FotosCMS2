@@ -1,0 +1,44 @@
+.tab-container {
+    width: 100%;
+    position: left;
+    margin-top: 50px;
+}
+
+.tabs {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.tabs li {
+    margin-right: 10px;
+}
+
+.tabs li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    background-color: #eee;
+    text-decoration: none;
+}
+
+.tabs li.active a {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-right: 1%;
+}
+
+@media (min-width:1000px){
+    .tab-content {
+        margin-right: 25%;
+    }
+}
