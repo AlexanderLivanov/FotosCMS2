@@ -15,6 +15,7 @@ if (isset($_POST['login'])) {
       $_SESSION['user_name'] = $username;
       echo '<p class="success">Поздравляем, вы прошли авторизацию!</p><p><a href="/">На главную</a></p>';
       header('Location: profile');
+      exit;
     } else {
       echo '<p class="error" style="color: red;"> Неверные пароль или имя пользователя!</p>';
     }

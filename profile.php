@@ -1,14 +1,21 @@
+<?php
+require_once('a/sys/cfg.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php if (!empty($_SESSION)) {
+    <title>
+        <?php
+            if (!empty($_SESSION)) {
                 echo $_SESSION['user_name'] . ' — Профиль';
             } else {
                 echo ('Вы не вошли в аккаунт');
-            } ?>
+            } 
+        ?>
     </title>
 </head>
 
@@ -20,7 +27,11 @@
         require_once('a/sys/userset.php');
     } else {
         echo ('Вы не вошли в аккаунт');
-        header("location: login");
+        echo('
+        <h3>&#10148;
+            <a href="login" style="text-decoration: none; color: #0072ff; margin-left: 10px;">Войти</a>
+        </h3>
+        ');
     }
     ?>
 

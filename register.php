@@ -23,6 +23,7 @@ if (isset($_POST['register'])) {
             echo 'alert("Вы успешно зарегистрировались! Сейчас вы будете перенаправлены на страницу входа...")';
             echo '</script>';
             header('Location: login');
+            exit;
         } else {
             echo '<p class="error">Неверные данные!</p>';
         }
