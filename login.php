@@ -44,7 +44,7 @@ if (isset($_POST['login'])) {
         <input type="password" name="password" required placeholder="Пароль" />
       </div>
       <button type="submit" name="login" value="login">Войти</button>
-      <p>Ещё нет аккаунта?<a href="register">Зарегистрируйтесь!</a></p>
+      <p>Ещё нет аккаунта? <a href="register">Зарегистрируйтесь!</a></p>
     </form>
   </div>
 </body>
