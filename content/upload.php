@@ -1,4 +1,5 @@
 <?php
+require_once('../a/sys/cfg.php');
 $input_name = 'file';
 
 // Разрешенные расширения файлов.
@@ -11,7 +12,7 @@ $deny = array(
     'htm', 'css', 'sql', 'spl', 'scgi', 'fcgi'
 );
 
-$path = __DIR__ . '../../../images/';
+$path = __DIR__ . '/' . $_SESSION['user_name'] . '/';
 
 if (isset($_FILES[$input_name])) {
     if (!is_dir($path)) {
@@ -120,9 +121,11 @@ if (isset($_FILES[$input_name])) {
         // Выводим сообщение о результате загрузки.
         if (!empty($success)) {
             echo '<p>' . $success . '</p>';
-            echo '<p><a href="admin-panel.php">Назад, в админку</a></p>';
+            $_GET['upload_status'] = "good";
+            header("location: ../profile?stat=" . $success);
         } else {
             echo '<p>' . $error . '</p>';
+            header("location: ../profile?err=" . $error);
         }
     }
 }
