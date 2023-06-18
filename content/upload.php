@@ -108,7 +108,9 @@ if (isset($_FILES[$input_name])) {
                 while (is_file($path . $parts['filename'] . $prefix . '.' . $parts['extension'])) {
                     $prefix = '(' . ++$i . ')';
                 }
-                $name = $parts['filename'] . $prefix . '.' . $parts['extension'];
+
+                $name = time() . '.' . $parts['extension'];
+                sleep(1);
 
                 if (move_uploaded_file($file['tmp_name'], $path . $name)) {
                     $success = 'Файл «' . $name . '» успешно загружен.';
@@ -118,10 +120,8 @@ if (isset($_FILES[$input_name])) {
             }
         }
 
-        // Выводим сообщение о результате загрузки.
         if (!empty($success)) {
             echo '<p>' . $success . '</p>';
-            $_GET['upload_status'] = "good";
             header("location: ../profile?stat=" . $success);
         } else {
             echo '<p>' . $error . '</p>';

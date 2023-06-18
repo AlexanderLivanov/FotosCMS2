@@ -1,6 +1,6 @@
 <form id="upload-img-form" action="content/upload.php" method="post" enctype="multipart/form-data">
     <h3>Загрузить медиа:</h3>
-    <input type="file" name="file[]" multiple>
+    <input type="file" name="file[]" multiple id="filestoupload">
     <input type="submit" value="Отправить">
 </form>
 
@@ -10,13 +10,13 @@ if (!empty($_GET['stat'])) {
     $stat = $_GET['stat'];
 }
 
-if(!empty($_GET['stat'])){
-    echo('
+if (!empty($_GET['stat'])) {
+    echo ('
     <script>
         Toaster.toast("' . $stat . '");
     </script>
     ');
-}else{
+} else {
     echo '';
 }
 
@@ -47,7 +47,6 @@ if (!empty($_GET['err'])) {
     $title = '';
     $i = 0;
 
-    //пробуем открыть папку
     $dir_handle = @opendir($directory) or die("There is an error with your image directory!");
     while ($file = readdir($dir_handle)) {
         if ($file == '.' || $file == '..') continue;
@@ -60,5 +59,9 @@ if (!empty($_GET['err'])) {
     closedir($dir_handle);
 
     ?>
-    <div class="clear"></div>
+    <div class="photos">
+        <?php
+
+        ?>
+    </div>
 </div>
