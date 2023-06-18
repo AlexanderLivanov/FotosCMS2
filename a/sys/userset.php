@@ -29,13 +29,12 @@ if ($result['admin'] == 1) {
 <body>
     <div class="tab-container">
         <ul class="tabs">
-            <li><a href="#tab1">Tab 1</a></li>
+            <li><a href="#tab1">Галерея</a></li>
             <li><a href="#tab2">Tab 2</a></li>
             <li><a href="#tab3">Tab 3</a></li>
         </ul>
         <div id="tab1" class="tab-content">
-            <h2>Tab 1 content</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <?php require_once('a/sys/cms/gallery.php'); ?>
         </div>
         <div id="tab2" class="tab-content">
             <h2>Tab 2 content</h2>
