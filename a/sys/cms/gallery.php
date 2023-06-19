@@ -77,7 +77,6 @@ if (!empty($_GET['err'])) {
 
     <h3>Превью вашей галереи:</h3>
     <div class="container">
-
         <?php
         $directory = "content/" . $_SESSION['user_name'];
         $images = glob($directory . "/*");

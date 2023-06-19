@@ -2,13 +2,6 @@
 
 require_once('cfg.php');
 
-$users_arr = [];
-
-$sql = mysqli_query($link, 'SELECT `id`, `username` FROM users');
-while ($result = mysqli_fetch_array($sql)) {
-    $username = $result['username'];
-    array_push($users_arr, $username);
-}
 ?>
 
 <head>
