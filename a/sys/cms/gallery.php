@@ -5,6 +5,8 @@
 </form>
 
 <?php
+require_once('a/sys/cfg.php');
+
 $stat = "";
 if (!empty($_GET['stat'])) {
     $stat = $_GET['stat'];
@@ -35,33 +37,3 @@ if (!empty($_GET['err'])) {
     echo '';
 }
 ?>
-
-<div id="gallery">
-    <?php
-    require_once('a/sys/cfg.php');
-
-    $directory = 'content/' . $_SESSION['user_name'];
-    $allowed_types = array('jpg', 'jpeg', 'gif', 'png');
-    $file_parts = array();
-    $ext = '';
-    $title = '';
-    $i = 0;
-
-    $dir_handle = @opendir($directory) or die("There is an error with your image directory!");
-    while ($file = readdir($dir_handle)) {
-        if ($file == '.' || $file == '..') continue;
-        $file_parts = explode('.', $file);
-        $ext = strtolower(array_pop($file_parts));
-        $title = implode('.', $file_parts);
-        $title = htmlspecialchars($title);
-        $nomargin = '';
-    }
-    closedir($dir_handle);
-
-    ?>
-    <div class="photos">
-        <?php
-
-        ?>
-    </div>
-</div>

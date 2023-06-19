@@ -113,9 +113,9 @@ if (isset($_FILES[$input_name])) {
                 sleep(1);
 
                 if (move_uploaded_file($file['tmp_name'], $path . $name)) {
-                    $success = 'Файл «' . $name . '» успешно загружен.';
+                    $success = 'Файлы успешно загружены.';
                 } else {
-                    $error = 'Не удалось загрузить файл.';
+                    $error = 'Не удалось загрузить файлы.';
                 }
             }
         }
