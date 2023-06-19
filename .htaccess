@@ -16,3 +16,7 @@ RewriteCond %{REQUEST_FILENAME}\.php -f
  # делаем замену с дописыванием .php
 
 RewriteRule ^(.*)$ $1.php
+
+RewriteCond %{HTTP_HOST} ^www\.(.+)
+RewriteCond %{HTTPS}s/%1 ^(on(s)|offs)/(.+)
+RewriteRule ^ http%2://%3%{REQUEST_URI} [L,R=301]

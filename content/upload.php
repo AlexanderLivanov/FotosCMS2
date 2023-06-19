@@ -123,9 +123,11 @@ if (isset($_FILES[$input_name])) {
         if (!empty($success)) {
             echo '<p>' . $success . '</p>';
             header("location: ../profile?stat=" . $success);
+            exit();
         } else {
             echo '<p>' . $error . '</p>';
             header("location: ../profile?err=" . $error);
+            exit();
         }
     }
 }
