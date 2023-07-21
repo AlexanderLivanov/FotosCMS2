@@ -3,6 +3,11 @@
     <input type="file" name="file[]" multiple id="filestoupload">
     <input type="submit" value="Отправить">
 </form>
+<script>
+    if (typeof window.history.pushState == 'function') {
+        window.history.pushState({}, "Hide", '<?php echo $_SERVER['PHP_SELF']; ?>');
+    }
+</script>
 
 <?php
 require_once('a/sys/cfg.php');
@@ -16,6 +21,9 @@ if (!empty($_GET['stat'])) {
     echo ('
     <script>
         Toaster.toast("' . $stat . '");
+        // setTimeout(function(){
+        // window.location.href = "profile";
+        // }, 1 * 1000);
     </script>
     ');
 } else {
@@ -29,9 +37,12 @@ if (!empty($_GET['err'])) {
 
 if (!empty($_GET['err'])) {
     echo ('
-<script>
-    Toaster.error("' . $err . '");
-</script>
+    <script>
+        Toaster.error("' . $err . '");
+        // setTimeout(function(){
+        // window.location.href = "profile";
+        // }, 1 * 1000);
+    </script>
 ');
 } else {
     echo '';
