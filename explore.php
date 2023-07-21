@@ -6,8 +6,6 @@
         .container {
             padding: 1em;
             column-count: 5;
-            width: 90%;
-            margin-top: 0;
         }
 
         img {
@@ -53,8 +51,7 @@ if (!empty($_POST['username'])) {
             <p>Упс... Кажется, такого пользователя нет... Попробуйте повторить поиск:</p>
             <form action="explore" method="POST">
                 <input type="text" value="' . $_POST['username'] . '" name="username">
-                <input type="submit" value="Поиск" id="search-btn"><br>
-                <a href="/" style="text-decoration: none; color: #0072ff;">На главную...</a>
+                <input type="submit" value="Поиск" id="search-btn">
             </form>
         </div>
         ');

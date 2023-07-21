@@ -43,5 +43,13 @@
             </ul>
         </nav>
     </header>
+    <div class="w3-sidebar w3-bar-block" style="width:25%;right:0; background-color: transparent;">
+        <h4 class="w3-bar-item">Меню</h4>
+        <a href="#" class="w3-bar-item w3-button">Полезные ссылки</a>
+        <a href="#" class="w3-bar-item w3-button">Связь со мной</a>
+        <a href="#" class="w3-bar-item w3-button">Предложить идею</a>
+        <a href="#" class="w3-bar-item w3-button">Поддержать монеткой</a>
+
+    </div>
 
 </html>
