@@ -6,6 +6,8 @@
         .container {
             padding: 1em;
             column-count: 5;
+            width: 90%;
+            margin: 0;
         }
 
         img {
@@ -35,7 +37,7 @@ $uname = "";
 if (!empty($_POST['username'])) {
     $directory = "content/" . $_POST['username'];
     if (is_dir($directory)) {
-        require_once('a/sys/header.php');
+        require_once('a/sys/header-fixed.php');
         $images = glob($directory . "/*");
         echo ('<div class="container">');
         foreach ($images as $image) {
@@ -43,7 +45,7 @@ if (!empty($_POST['username'])) {
         }
         echo ('</div>');
     } else {
-        echo('
+        echo ('
         <head>
             <link rel="stylesheet" href="css/search.css">
         </head>
@@ -51,7 +53,8 @@ if (!empty($_POST['username'])) {
             <p>Упс... Кажется, такого пользователя нет... Попробуйте повторить поиск:</p>
             <form action="explore" method="POST">
                 <input type="text" value="' . $_POST['username'] . '" name="username">
-                <input type="submit" value="Поиск" id="search-btn">
+                <input type="submit" value="Поиск" id="search-btn"><br>
+                <a href="/" style="text-decoration: none; color: #0072ff;">На главную...</a>
             </form>
         </div>
         ');

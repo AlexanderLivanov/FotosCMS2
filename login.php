@@ -8,7 +8,7 @@ if (isset($_POST['login'])) {
   $query->execute();
   $result = $query->fetch(PDO::FETCH_ASSOC);
   if (!$result) {
-    echo '<p class="error">Неверные пароль или имя пользователя!</p>';
+    echo '<script>alert("Неправильный логин или пароль");</script>';
   } else {
     if (password_verify($password, $result['password'])) {
       $_SESSION['user_id'] = $result['id'];
@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
       header('Location: profile');
       exit();
     } else {
-      echo '<p class="error" style="color: red;"> Неверные пароль или имя пользователя!</p>';
+      echo '<script>alert("Неправильный логин или пароль");</script>';
     }
   }
 }

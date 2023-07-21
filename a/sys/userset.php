@@ -30,8 +30,8 @@ if ($result['admin'] == 1) {
     <div class="tab-container">
         <ul class="tabs">
             <li><a href="#tab1">Галерея</a></li>
-            <li><a href="#tab2">Tab 2</a></li>
-            <li><a href="#tab3">Tab 3</a></li>
+            <li style="pointer-events: none;"><a href="#tab2"><i>Скоро...</i></a></li>
+            <li style="pointer-events: none;"><a href="#tab3"><i>Скоро...</i></a></li>
         </ul>
         <div id="tab1" class="tab-content">
             <?php require_once('a/sys/cms/gallery.php'); ?>
