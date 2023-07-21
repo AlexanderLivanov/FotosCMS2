@@ -21,9 +21,6 @@ if (!empty($_GET['stat'])) {
     echo ('
     <script>
         Toaster.toast("' . $stat . '");
-        // setTimeout(function(){
-        // window.location.href = "profile";
-        // }, 1 * 1000);
     </script>
     ');
 } else {
@@ -39,9 +36,6 @@ if (!empty($_GET['err'])) {
     echo ('
     <script>
         Toaster.error("' . $err . '");
-        // setTimeout(function(){
-        // window.location.href = "profile";
-        // }, 1 * 1000);
     </script>
 ');
 } else {
