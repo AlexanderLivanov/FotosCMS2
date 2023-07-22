@@ -61,7 +61,24 @@ if (!empty($_GET['err'])) {
         img {
             width: 100%;
             margin-bottom: 1em;
+            transition: all 0.3s;
+            border-radius: 10px;
+            box-shadow: 0px 1px 2px 0px grey,
+                1px 2px 4px 0px grey,
+                2px 4px 8px 0px grey,
+                2px 4px 16px 0px grey;
+        }
 
+        img:hover {
+            width: 100%;
+            margin-bottom: 1em;
+            filter: blur(10px) grayscale(100%);
+            transition: all 0.3s;
+            border-radius: 10px;
+            box-shadow: 0px 1px 2px 0px grey,
+                1px 2px 4px 0px grey,
+                2px 4px 8px 0px grey,
+                2px 4px 16px 0px grey;
         }
 
         @media(max-width: 800px) {
