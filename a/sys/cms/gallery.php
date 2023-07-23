@@ -62,16 +62,20 @@ if (!empty($_GET['err'])) {
             position: relative;
         }
 
-        .img-button {
+        .img-cont .img-button {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            transition: all 0.3s;
             display: none;
         }
 
         .img-cont:hover .img-button {
             position: absolute;
+            display: flex;
+            transition: all 0.3s;
             bottom: 50px;
             right: 50px;
-            display: block;
-            z-index: 11;
         }
 
         img {
