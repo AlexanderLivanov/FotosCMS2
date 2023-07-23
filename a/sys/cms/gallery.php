@@ -60,27 +60,26 @@ if (!empty($_GET['err'])) {
 
         .img-cont {
             position: relative;
+            transition: all 0.3s;
         }
 
         .img-cont .img-button {
             position: absolute;
-            bottom: 50px;
-            right: 50px;
             transition: all 0.3s;
             display: none;
+            filter: none;
         }
 
         .img-cont:hover .img-button {
             position: absolute;
             display: flex;
             transition: all 0.3s;
-            bottom: 50px;
-            right: 50px;
+            top: 5%;
+            right: 10%;
         }
 
-        img {
-            width: 100%;
-            margin-bottom: 1em;
+        .img-cont:hover img {
+            filter: blur(10px) grayscale(100%);
             transition: all 0.3s;
             border-radius: 10px;
             box-shadow: 0px 1px 2px 0px grey,
@@ -89,11 +88,10 @@ if (!empty($_GET['err'])) {
                 2px 4px 16px 0px grey;
         }
 
-        img:hover {
+        img {
+            transition: all 0.3s;
             width: 100%;
             margin-bottom: 1em;
-            filter: blur(10px) grayscale(100%);
-            transition: all 0.3s;
             border-radius: 10px;
             box-shadow: 0px 1px 2px 0px grey,
                 1px 2px 4px 0px grey,
@@ -127,7 +125,13 @@ if (!empty($_GET['err'])) {
             echo '<div class="img-cont">
                     <img class="gallery-img" src="' . $image . '" alt="">
                     <div class="img-button">
-                        <button>Удалить</button>
+                        <a href="#" style="box-shadow: 0 0 15px grey; color: grey; background-color: rgba(255, 255, 255, 1); border: white; border-radius: 5px; padding: 2px; text-align: center; verticle-align: middle;">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="" class="icon icon-tabler icon-tabler-trash-filled" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M20 6a1 1 0 0 1 .117 1.993l-.117 .007h-.081l-.919 11a3 3 0 0 1 -2.824 2.995l-.176 .005h-8c-1.598 0 -2.904 -1.249 -2.992 -2.75l-.005 -.167l-.923 -11.083h-.08a1 1 0 0 1 -.117 -1.993l.117 -.007h16z" stroke-width="0" fill="currentColor"></path>
+                            <path d="M14 2a2 2 0 0 1 2 2a1 1 0 0 1 -1.993 .117l-.007 -.117h-4l-.007 .117a1 1 0 0 1 -1.993 -.117a2 2 0 0 1 1.85 -1.995l.15 -.005h4z" stroke-width="0" fill="currentColor"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>';
         }
