@@ -58,6 +58,22 @@ if (!empty($_GET['err'])) {
             column-count: 4;
         }
 
+        .img-cont {
+            position: relative;
+        }
+
+        .img-button {
+            display: none;
+        }
+
+        .img-cont:hover .img-button {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            display: block;
+            z-index: 11;
+        }
+
         img {
             width: 100%;
             margin-bottom: 1em;
@@ -104,7 +120,12 @@ if (!empty($_GET['err'])) {
         $images = glob($directory . "/*");
 
         foreach ($images as $image) {
-            echo '<div><img src="' . $image . '" alt=""></div>';
+            echo '<div class="img-cont">
+                    <img class="gallery-img" src="' . $image . '" alt="">
+                    <div class="img-button">
+                        <button>Удалить</button>
+                    </div>
+                </div>';
         }
         ?>
     </div>
