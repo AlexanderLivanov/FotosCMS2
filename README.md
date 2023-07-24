@@ -3,7 +3,7 @@
 ![GitHub watchers](https://img.shields.io/github/watchers/AlexanderLivanov/FotosCMS2?style=social)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/AlexanderLivanov/FotosCMS2)
 ![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
-[![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://github.com/AlexanderLivanov/FotosCMS2/releases/)
+[![GitHub release](https://img.shields.io/github/release/AlexanderLivanov/FotosCMS2.svg)](https://github.com/AlexanderLivanov/FotosCMS2/releases/)
 
 
 :exclamation: Система ещё в разработке
