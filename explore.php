@@ -60,7 +60,19 @@ if (!empty($_POST['username'])) {
         ');
     }
 } else {
-    echo 'Запрос не определен';
+    echo ('
+        <head>
+            <link rel="stylesheet" href="css/search.css">
+        </head>
+        <div class="search" style="text-align: center; margin-top: 20%; background-color: whitesmoke; height: 100px; margin-right: 10%; margin-left: 10%; padding: 1em; border-radius: 40px;">
+            <p>Кажется, вы что-то неправильно ввели... Попробуйте повторить поиск:</p>
+            <form action="explore" method="POST">
+                <input type="text" value="' . $_POST['username'] . '" name="username">
+                <input type="submit" value="Поиск" id="search-btn"><br>
+                <a href="/" style="text-decoration: none; color: #0072ff;">На главную...</a>
+            </form>
+        </div>
+        ');
 }
 
 ?>

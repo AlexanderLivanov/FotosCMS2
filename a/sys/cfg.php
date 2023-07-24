@@ -1,5 +1,8 @@
 <?php
+
 session_start();
+
+if(isset($_COOKIE['username_cookie'])) { $_SESSION['user_name'] = $_COOKIE['username_cookie']; }
 
 // PDO Connect
 

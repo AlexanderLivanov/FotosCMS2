@@ -14,6 +14,7 @@ if (isset($_POST['login'])) {
       $_SESSION['user_id'] = $result['id'];
       $_SESSION['user_name'] = $username;
       echo '<p class="success">Поздравляем, вы прошли авторизацию!</p><p><a href="/">На главную</a></p>';
+      setcookie("username_cookie", $_SESSION['user_name'], time() + 7 * 24 * 3600);
       header('Location: profile');
       exit();
     } else {
