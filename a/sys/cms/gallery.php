@@ -381,8 +381,8 @@
                 success: function(data) {
                     data.forEach(function(msg) {
                         Toaster.toast("Файлы успешно загружены");
-                        window.location.reload();
                     });
+                    window.location.reload();
                 }
             });
         }

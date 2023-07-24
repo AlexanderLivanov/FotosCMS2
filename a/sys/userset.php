@@ -1,21 +1,4 @@
-<?php
-require_once('cfg.php');
-
-$query = $connection->prepare("SELECT * FROM users where `username` = '" . $_SESSION['user_name'] . "'");
-$query->execute();
-$result = $query->fetch(PDO::FETCH_ASSOC);
-
-echo $_SESSION['user_name'] . ' — Профиль | Участник сообщества с ' . $result['registered'] . '<br>';
-if ($result['admin'] == 1) {
-    echo '<p style="color: red;">Вы находитесь в учётной записи администратора!</p>';
-    echo '
-    <form method="post">
-        <input type="submit" name="logout"
-                value="Выйти"/>
-        </form>
-    ';
-}
-?>
+<?php require_once('a/sys/cfg.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,15 +13,14 @@ if ($result['admin'] == 1) {
     <div class="tab-container" style="text-align: center;">
         <ul class="tabs">
             <li><a href="#tab1">Галерея</a></li>
-            <li style="pointer-events: none;"><a href="#tab2"><i>Скоро...</i></a></li>
+            <li><a href="#tab2">Личная информация</a></li>
             <li style="pointer-events: none;"><a href="#tab3"><i>Скоро...</i></a></li>
         </ul>
         <div id="tab1" class="tab-content">
             <?php require_once('a/sys/cms/gallery.php'); ?>
         </div>
         <div id="tab2" class="tab-content">
-            <h2>Tab 2 content</h2>
-            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <?php require_once('a/sys/cms/my.php'); ?>
         </div>
         <div id="tab3" class="tab-content">
             <h2>Tab 3 content</h2>

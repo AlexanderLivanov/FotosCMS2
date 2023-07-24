@@ -33,7 +33,7 @@ require_once('a/sys/cfg.php');
 
         if (isset($_POST['logout'])) {
             session_destroy();
-            header('location: login');
+            echo('<script>window.location.replace("login");</script>');
         }
     } else {
         echo ('Вы не вошли в аккаунт');
