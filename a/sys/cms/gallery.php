@@ -1,60 +1,10 @@
-<head>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-</head>
-
-<form id="upload-img-form" action="content/upload.php" method="post" enctype="multipart/form-data">
-    <h3>Загрузить медиа:</h3>
-    <input type="file" name="file[]" multiple id="filestoupload">
-    <input type="submit" value="Отправить">
-</form>
-<script>
-    if (typeof window.history.pushState == 'function') {
-        window.history.pushState({}, "Hide", '<?php echo $_SERVER['PHP_SELF']; ?>');
-    }
-</script>
-
-<?php
-require_once('a/sys/cfg.php');
-
-$stat = "";
-if (!empty($_GET['stat'])) {
-    $stat = $_GET['stat'];
-}
-
-if (!empty($_GET['stat'])) {
-    echo ('
-    <script>
-        Toaster.toast("' . $stat . '");
-    </script>
-    ');
-} else {
-    echo '';
-}
-
-$err = "";
-if (!empty($_GET['err'])) {
-    $err = $_GET['err'];
-}
-
-if (!empty($_GET['err'])) {
-    echo ('
-    <script>
-        Toaster.error("' . $err . '");
-    </script>
-');
-} else {
-    echo '';
-}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <title></title>
     <style>
         .container {
@@ -119,6 +69,38 @@ if (!empty($_GET['err'])) {
 </head>
 
 <body>
+    <input type="file" multiple id="js-file">
+
+    <div id="result"></div>
+
+    <script>
+        $("#js-file").change(function() {
+            if (window.FormData === undefined) {
+                alert('В вашем браузере FormData не поддерживается')
+            } else {
+                var formData = new FormData();
+                $.each($("#js-file")[0].files, function(key, input) {
+                    formData.append('file[]', input);
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: 'content/upload.php',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: formData,
+                    dataType: 'json',
+                    success: function(data) {
+                        data.forEach(function(msg) {
+                            Toaster.toast("Файлы успешно загружены");
+                            // $('#container').load(window.location.href + ' #container');
+                        });
+                    }
+                });
+            }
+        });
+    </script>
 
     <h3>Превью вашей галереи:</h3>
     <div class="container">
