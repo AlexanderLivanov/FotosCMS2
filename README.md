@@ -4,7 +4,6 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/AlexanderLivanov/FotosCMS2)
 ![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
 [![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://github.com/AlexanderLivanov/FotosCMS2/releases/)
-[![Npm package license](https://badgen.net/npm/llicense/discord.js)](https://npmjs.com/package/discord.js)
 
 
 :exclamation: Система ещё в разработке
