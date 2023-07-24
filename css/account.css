@@ -2,6 +2,7 @@
     width: 100%;
     position: left;
     margin-top: 50px;
+    text-align: center;
 }
 
 .tabs {
@@ -38,7 +39,8 @@
 }
 
 @media (min-width:1000px){
-    .tab-content {
-        margin-right: 25%;
+    .tab-container {
+        margin: 0 10% 0 10%;
+        width: 80%;
     }
 }

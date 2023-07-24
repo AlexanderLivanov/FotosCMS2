@@ -12,7 +12,7 @@ Toaster = function() {
     Toaster.amount = 0;
 
     Toaster.default = {
-        color: '#C5C56A',
+        color: '#008000',
         autoClose: true,
         autoCloseDelay: 2000,
         position: 'right-top'

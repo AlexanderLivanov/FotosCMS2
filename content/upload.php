@@ -6,7 +6,7 @@ session_start();
 $input_name = 'file';
 
 // Разрешенные расширения файлов.
-$allow = array();
+$allow = array('png', 'jpg', 'jpeg', 'gif', 'svg', 'mp4');
 
 // Запрещенные расширения файлов.
 $deny = array(

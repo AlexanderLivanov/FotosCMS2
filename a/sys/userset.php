@@ -27,7 +27,7 @@ if ($result['admin'] == 1) {
 </head>
 
 <body>
-    <div class="tab-container">
+    <div class="tab-container" style="text-align: center;">
         <ul class="tabs">
             <li><a href="#tab1">Галерея</a></li>
             <li style="pointer-events: none;"><a href="#tab2"><i>Скоро...</i></a></li>
