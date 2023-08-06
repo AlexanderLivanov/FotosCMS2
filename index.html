@@ -4,24 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/mobile.css">
     <title>FotosWorld</title>
+    <style>
+        @media (max-width: 1111px) {
+            #desktop-view {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1111px) {
+            #mobile-view {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="side-menu">
-        <div id="logo">
-            <h1>FotosWorld</h1>
+    <div id="mobile-view">
+        <div class="wrapper">
+            <h1>Меню</h1>
+            <a class="menu-btn" onclick="toggleMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="28" height="28"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M4 6l16 0"></path>
+                <path d="M4 12l26 0"></path>
+                <path d="M4 18l16 0"></path>
+            </svg>
+            </a>
+            <section class="one" onclick="goToPage(0)">
+                <h1>О проекте</h1>
+            </section>
+            <section class="two" onclick="goToPage(1)">
+                <h1>Профиль</h1>
+            </section>
+            <section class="three" onclick="goToPage(2)">
+                <h1>Лента</h1>
+            </section>
         </div>
-        <form id="search-form" onsubmit="event.preventDefault();" role="search">
-            <label for="search">Search for stuff</label>
-            <input id="search" type="search" placeholder="Search..." autofocus required />
-            <button type="submit">Go</button>
-        </form>
     </div>
-    <div class="main-container">
-        ok
+    <div id="desktop-view">
+        <div class="side-menu">
+            <div id="logo">
+                <h1>FotosWorld</h1>
+            </div>
+            <form id="search-form" onsubmit="event.preventDefault();" role="search">
+                <label for="search">Поиск пользователей</label>
+                <input id="search" type="search" placeholder="Ищете кого-то?" autofocus required />
+                <button type="submit">Go</button>
+            </form>
+        </div>
+        <div class="main-container">
+            ok
+        </div>
     </div>
+
+    <script>
+        var pages = new Array('one', 'two', 'three', 'four');
+
+            function toggleMenu() {
+                document.getElementsByClassName('wrapper')[0].classList.toggle('menu-open');
+            }
+
+            function goToPage(page) {
+                var wrapper = document.getElementsByClassName('wrapper')[0];
+                var sections = document.getElementsByTagName('section');
+                for (i = 0; i < sections.length; i++) {
+                    sections[i].classList.remove('before', 'after');
+                    if (i > page) {
+                        sections[i].classList.add('after');
+                    }
+                }
+                wrapper.classList.remove('menu-open', 'page-one', 'page-two');
+                wrapper.classList.add('page-' + pages[page]);
+            }
+    </script>
 </body>
 
 </html>
