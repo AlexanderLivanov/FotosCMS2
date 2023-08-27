@@ -2,12 +2,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link rel="stylesheet" href="css/fonts-fix.css">
     <style>
         .container {
             padding: 1em;
             column-count: 5;
-            width: 90%;
             margin: 0;
+            justify-items: center;
         }
 
         img {
@@ -44,6 +45,34 @@
             scale: 1;
             transition: all 0.3s;
         }
+
+        #profile-banner {
+            height: 200px;
+            background-color: grey;
+            border-radius: 5px;
+            margin: 1em;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            object-fit:fill;
+            /* background-image:  */
+        }
+
+        #profile-banner h1, h3 {
+            color: whitesmoke;
+            text-align: start;
+            font-family: sans-serif;
+            font-weight: 900;
+        }
+
+        #profile-avatar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 1000px;
+            object-fit: cover;
+            padding: 1em;
+            justify-items: center;
+        }
     </style>
 </head>
 
@@ -58,8 +87,18 @@ if (!empty($_POST['username'])) {
         $query = $connection->prepare("SELECT * FROM users where `username` = '" . $_POST['username'] . "'");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
-        echo ('<div style="width: 95%; border-radius: 5px; border: 1px solid black; text-align: center; padding: 1em;">');
-        echo $_POST['username'] . ' — Профиль | Участник сообщества с ' . $result['registered'] . ' &nbsp;';
+        echo ('<div style="border-radius: 5px; text-align: center; padding: 1em;">');
+        echo('<div id="profile-banner">');
+        echo('
+            <div id="profile-avatar">
+                <img src="https://cdnn1.inosmi.ru/images/23538/30/235383059.jpg">
+            </div>
+        ');
+        echo('<div style="padding: 1em;">');
+        echo('<h1>' . $_POST['username'] . '</h1>');
+        echo('<h3>Участник сообщества с ' . $result['registered'] . '</h3>');
+        echo('</div>');
+        echo('</div>');
         $images = glob($directory . "/*");
         echo ('<div class="container">');
         foreach ($images as $image) {
