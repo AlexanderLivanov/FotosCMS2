@@ -47,10 +47,10 @@
         }
 
         #profile-banner {
-            height: 200px;
+            height: 160px;
             background-color: grey;
             border-radius: 5px;
-            margin: 1em;
+            margin: 0.5em;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -70,8 +70,42 @@
             height: 150px;
             border-radius: 1000px;
             object-fit: cover;
-            padding: 1em;
+            padding: 0.5em;
             justify-items: center;
+        }
+
+        @media(max-width: 500px){
+            #profile-banner {
+            height: 80px;
+            background-color: grey;
+            border-radius: 5px;
+            margin: 0.5em;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            object-fit:fill;
+            /* background-image:  */
+        }
+
+        #profile-banner h1, h3 {
+            color: whitesmoke;
+            text-align: start;
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            margin: 0;
+            padding-right: .3em;
+            padding-top: .2em;
+        }
+
+        #profile-avatar img {
+            width: 90px;
+            height: 90px;
+            border-radius: 1000px;
+            object-fit: cover;
+            padding: .5em;
+            justify-items: center;
+        }
         }
     </style>
 </head>
