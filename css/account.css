@@ -22,6 +22,7 @@
     color: #333;
     background-color: #eee;
     text-decoration: none;
+    border-radius: 10px 10px 0 0;
 }
 
 .tabs li.active a {
@@ -35,7 +36,7 @@
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #fff;
-    margin-right: 1%;
+    border-radius: 0px 15px 15px 15px;
 }
 
 @media (min-width:1000px){

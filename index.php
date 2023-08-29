@@ -8,7 +8,7 @@
   <link rel="icon" href="img/icon.png" />
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/search.css">
-<title>FotosCMS</title>
+<title>FotosWorld</title>
 </head>
 
 <body>
