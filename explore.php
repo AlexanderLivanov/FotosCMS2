@@ -121,6 +121,12 @@ if (!empty($_POST['username'])) {
         $query = $connection->prepare("SELECT * FROM users where `username` = '" . $_POST['username'] . "'");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
+
+        $datestr = $result['registered'];
+        $datetime = strtotime($datestr);
+        $diff = time() - $datetime;
+        $days = intval($diff / 86400);
+        
         echo ('<div style="border-radius: 5px; text-align: center; padding: 1em;">');
         echo('<div id="profile-banner">');
         echo('
@@ -130,7 +136,7 @@ if (!empty($_POST['username'])) {
         ');
         echo('<div style="padding: 1em;">');
         echo('<h1>' . $_POST['username'] . '</h1>');
-        echo('<h3>Участник сообщества с ' . $result['registered'] . '</h3>');
+        echo('<h3>' . $_SESSION['user_name'] . ' — Профиль | Участник сообщества с ' . $result['registered'] . " (" . $days . ' дней назад) &nbsp;</h3>');
         echo('</div>');
         echo('</div>');
         $images = glob($directory . "/*");

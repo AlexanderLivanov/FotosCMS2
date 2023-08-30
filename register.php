@@ -1,6 +1,7 @@
 <?php
 require_once('a/sys/cfg.php');
 require_once('a/sys/time.php');
+
 if (isset($_POST['register'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -22,6 +23,10 @@ if (isset($_POST['register'])) {
             echo '<script language="javascript">';
             echo 'alert("Вы успешно зарегистрировались! Сейчас вы будете перенаправлены на страницу входа...")';
             echo '</script>';
+            $query = $connection->prepare("SELECT * FROM users where `username` = '" . $_POST['username'] . "'");
+            $query->execute();
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+            mkdir('users/' . $result['id']);
             header('Location: login');
             exit();
         } else {
