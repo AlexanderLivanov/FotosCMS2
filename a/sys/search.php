@@ -1,9 +1,3 @@
-<?php
-
-require_once('cfg.php');
-
-?>
-
 <head>
     <link rel="stylesheet" href="css/search.css">
 </head>

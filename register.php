@@ -27,6 +27,7 @@ if (isset($_POST['register'])) {
             $query->execute();
             $result = $query->fetch(PDO::FETCH_ASSOC);
             mkdir('users/' . $result['id']);
+            file_put_contents('users/' . $result['id'] . '/index.html', '<h1>' . $result['id'] . '</h1>');
             header('Location: login');
             exit();
         } else {

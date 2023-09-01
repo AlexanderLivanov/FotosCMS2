@@ -28,10 +28,8 @@
                         ?>
                     </a>
                 </li>
-                <li><a href="/">Главная</a></li>
-                <li><a href="gallery">Галерея</a></li>
-                <li><a href="posts">Посты</a></li>
-                <li><a href="about">Контакты</a></li>
+                <li><a href="/">Лента</a></li>
+                <li><a href="about">Информация</a></li>
                 <li><a href="profile" style="vertical-align:middle;"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>

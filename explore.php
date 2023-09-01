@@ -47,7 +47,7 @@
         }
 
         #profile-banner {
-            height: 160px;
+            height: auto;
             background-color: grey;
             border-radius: 5px;
             margin: 0.5em;
@@ -63,6 +63,7 @@
             text-align: start;
             font-family: sans-serif;
             font-weight: 900;
+            font-size: 16px;
         }
 
         #profile-avatar img {
@@ -74,9 +75,9 @@
             justify-items: center;
         }
 
-        @media(max-width: 500px){
+        @media(min-width: 950px){
             #profile-banner {
-            height: 80px;
+            height: 100px;
             background-color: grey;
             border-radius: 5px;
             margin: 0.5em;
@@ -92,7 +93,40 @@
             text-align: start;
             font-family: sans-serif;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 18px;
+            margin: 0;
+            padding-right: .3em;
+            padding-top: .2em;
+        }
+
+        #profile-avatar img {
+            width: 90px;
+            height: 90px;
+            border-radius: 1000px;
+            object-fit: cover;
+            padding: .5em;
+            justify-items: center;
+        }
+        }
+
+        @media(max-width: 450px){
+            #profile-banner {
+            height: 100px;
+            background-color: grey;
+            border-radius: 5px;
+            margin: 0.5em;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            object-fit:fill;
+            /* background-image:  */
+        }
+
+        #profile-banner h1, h3 {
+            color: whitesmoke;
+            text-align: start;
+            font-family: sans-serif;
+            font-weight: 600;
             margin: 0;
             padding-right: .3em;
             padding-top: .2em;
@@ -111,14 +145,22 @@
 </head>
 
 <?php
+require_once('a/sys/cfg.php');
 
 $uname = "";
 
-if (!empty($_POST['username'])) {
-    $directory = "content/" . $_POST['username'];
+if (!empty($_POST['username']) or !empty($_GET['u'])) {
+    if(!empty($_POST['username'])){
+        $directory = "content/" . $_POST['username'];
+        $srch = $_POST['username'];
+    }
+    if(!empty($_GET['u'])){
+        $directory = "content/" . $_GET['u'];
+        $srch = $_GET['u'];
+    }
     if (is_dir($directory)) {
         require_once('a/sys/header-fixed.php');
-        $query = $connection->prepare("SELECT * FROM users where `username` = '" . $_POST['username'] . "'");
+        $query = $connection->prepare("SELECT * FROM users where `username` = '" . $srch . "'");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -135,8 +177,8 @@ if (!empty($_POST['username'])) {
             </div>
         ');
         echo('<div style="padding: 1em;">');
-        echo('<h1>' . $_POST['username'] . '</h1>');
-        echo('<h3>' . $_SESSION['user_name'] . ' — Профиль | Участник сообщества с ' . $result['registered'] . " (" . $days . ' дней назад) &nbsp;</h3>');
+        echo('<h1>' . $result['username'] . '</h1>');
+        echo('<h3>Участник сообщества с ' . $result['registered'] . "</h3><h3> (" . $days . ' дней назад) &nbsp;</h3>');
         echo('</div>');
         echo('</div>');
         $images = glob($directory . "/*");
@@ -154,7 +196,7 @@ if (!empty($_POST['username'])) {
         <div class="search" style="text-align: center; margin-top: 20%; background-color: whitesmoke; height: 100px; margin-right: 10%; margin-left: 10%; padding: 1em; border-radius: 40px;">
             <p>Упс... Кажется, такого пользователя нет... Попробуйте повторить поиск:</p>
             <form action="explore" method="POST">
-                <input type="text" value="' . $_POST['username'] . '" name="username" pattern="[a-zA-Z0-9]+">
+                <input type="text" value="' . $srch . '" name="username" pattern="[a-zA-Z0-9]+">
                 <input type="submit" value="Поиск" id="search-btn"><br>
                 <a href="/" style="text-decoration: none; color: #0072ff;">На главную...</a>
             </form>
@@ -169,7 +211,7 @@ if (!empty($_POST['username'])) {
         <div class="search" style="text-align: center; margin-top: 20%; background-color: whitesmoke; height: 100px; margin-right: 10%; margin-left: 10%; padding: 1em; border-radius: 40px;">
             <p>Кажется, вы что-то неправильно ввели... Попробуйте повторить поиск:</p>
             <form action="explore" method="POST">
-                <input type="text" value="' . $_POST['username'] . '" name="username" pattern="[a-zA-Z0-9]+">
+                <input type="text" value="' . $srch . '" name="username" pattern="[a-zA-Z0-9]+">
                 <input type="submit" value="Поиск" id="search-btn"><br>
                 <a href="/" style="text-decoration: none; color: #0072ff;">На главную...</a>
             </form>
