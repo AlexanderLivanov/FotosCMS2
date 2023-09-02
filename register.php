@@ -10,6 +10,7 @@ if (isset($_POST['register'])) {
     $query = $connection->prepare("SELECT * FROM users WHERE username=:username");
     $query->bindParam("username", $username, PDO::PARAM_STR);
     $query->execute();
+
     if ($query->rowCount() == 0) {
         $query = $connection->prepare("INSERT INTO users(username,password, registered) VALUES (:username, :password_hash, :tm)");
         $query->bindParam("username", $username, PDO::PARAM_STR);
@@ -27,14 +28,14 @@ if (isset($_POST['register'])) {
             $query->execute();
             $result = $query->fetch(PDO::FETCH_ASSOC);
             mkdir('users/' . $result['id']);
-            file_put_contents('users/' . $result['id'] . '/index.html', '<h1>' . $result['id'] . '</h1>');
+            file_put_contents('users/' . $result['id'] . '/index.html', '<iframe src="../../explore.php?u=' . $result['$username'] . '">');
             header('Location: login');
             exit();
         } else {
             echo '<p class="error">Неверные данные!</p>';
         }
     }else{
-        echo '<script language="javascript">';
+        echo '<script>';
         echo 'alert("Этот ник уже занят! Придумайте другой")';
         echo '</script>';
     }

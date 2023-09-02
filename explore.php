@@ -167,11 +167,12 @@ if (!empty($_POST['username']) or !empty($_GET['u'])) {
             $req->execute();
 
             $res = $req->fetch();
+            echo('<a href="users/' . $user[0] . '">');
             echo ('<div style="border-radius: 5px; text-align: center; padding: .5em;">');
             echo('<div id="profile-banner">');
             echo('
                 <div id="profile-avatar">
-                    <img src="https://cdnn1.inosmi.ru/images/23538/30/235383059.jpg">
+                    <img src="content/' . $user[1] . '/avatar.png">
                 </div>
             ');
             echo('<div style="padding: 1em;">');
@@ -180,13 +181,13 @@ if (!empty($_POST['username']) or !empty($_GET['u'])) {
             echo('</div>');
             echo('</div>');
             echo('</div>');
+            echo('</a>');
         }
     }
 
     $quest = "SELECT * FROM `users` WHERE username LIKE '$srch%'";
     $request = $connection->prepare($quest);
     $request->execute();
-
     $result = $request->fetchAll();
     printUser($result);
 
@@ -206,8 +207,21 @@ if (!empty($_POST['username']) or !empty($_GET['u'])) {
     ');
     }
 } else {
-    
-}
+    require_once('a/sys/header-fixed.php');
+    echo ('
+    <head>
+        <link rel="stylesheet" href="css/search.css">
+    </head>
+    <div class="search" style="text-align: center; background-color: whitesmoke; height: 100px; margin-right: 10%; margin-left: 10%; padding: 1em; border-radius: 40px;">
+        <p>Запрос не задан или не разрешен... Попробуйте повторить поиск:</p>
+        <form action="explore" method="POST">
+            <input type="text" value="" name="username" pattern="[a-zA-Z0-9]+">
+            <input type="submit" value="Поиск" id="search-btn"><br>
+            <a href="/" style="text-decoration: none; color: #0072ff;">На главную...</a>
+        </form>
+    </div>
+    ');
+    }
 
 ?>
 
