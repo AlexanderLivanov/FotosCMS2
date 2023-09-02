@@ -159,8 +159,27 @@ if (!empty($_POST['username']) or !empty($_GET['u'])) {
     require_once('a/sys/header-fixed.php');
 
     function printUser($value){
+        global $connection;
+
         foreach($value as $user){
-            echo $user[1] . '<br>';
+            $q = "SELECT * FROM `users` WHERE username = '$user[1]'";
+            $req = $connection->prepare($q);
+            $req->execute();
+
+            $res = $req->fetch();
+            echo ('<div style="border-radius: 5px; text-align: center; padding: .5em;">');
+            echo('<div id="profile-banner">');
+            echo('
+                <div id="profile-avatar">
+                    <img src="https://cdnn1.inosmi.ru/images/23538/30/235383059.jpg">
+                </div>
+            ');
+            echo('<div style="padding: 1em;">');
+            echo('<h1>' . $user[1] . '</h1>');
+            echo('<h3>Участник сообщества с ' . $res[4] . "</h3><h3> (" . intval((time() - strtotime($res[4])) / 86400) . ' дней назад) &nbsp;</h3>');
+            echo('</div>');
+            echo('</div>');
+            echo('</div>');
         }
     }
 
@@ -171,38 +190,12 @@ if (!empty($_POST['username']) or !empty($_GET['u'])) {
     $result = $request->fetchAll();
     printUser($result);
 
-    $datestr = $result['registered'];
-    $datetime = strtotime($datestr);
-    $diff = time() - $datetime;
-    $days = intval($diff / 86400);
-    
-    // echo($srch);
-    // print_r($result);
-    // echo ('<div style="border-radius: 5px; text-align: center; padding: 1em;">');
-    // echo('<div id="profile-banner">');
-    // echo('
-    //     <div id="profile-avatar">
-    //         <img src="https://cdnn1.inosmi.ru/images/23538/30/235383059.jpg">
-    //     </div>
-    // ');
-    // echo('<div style="padding: 1em;">');
-    // echo('<h1>' . $result['username'] . '</h1>');
-    // echo('<h3>Участник сообщества с ' . $result['registered'] . "</h3><h3> (" . $days . ' дней назад) &nbsp;</h3>');
-    // echo('</div>');
-    // echo('</div>');
-    // $images = glob($directory . "/*");
-    // echo ('<div class="container">');
-    // foreach ($images as $image) {
-    //     echo '<div><img class="gallery-item" id="' . $image . '" src="' . $image . '" alt=""></div>';
-    // }
-    // echo ('</div>');
-    // echo ('</div>');
-} else {
-    echo ('
+    if(empty($result)){
+        echo ('
     <head>
         <link rel="stylesheet" href="css/search.css">
     </head>
-    <div class="search" style="text-align: center; margin-top: 20%; background-color: whitesmoke; height: 100px; margin-right: 10%; margin-left: 10%; padding: 1em; border-radius: 40px;">
+    <div class="search" style="text-align: center; background-color: whitesmoke; height: 100px; margin-right: 10%; margin-left: 10%; padding: 1em; border-radius: 40px;">
         <p>Упс... Кажется, такого пользователя нет... Попробуйте повторить поиск:</p>
         <form action="explore" method="POST">
             <input type="text" value="' . $srch . '" name="username" pattern="[a-zA-Z0-9]+">
@@ -211,6 +204,9 @@ if (!empty($_POST['username']) or !empty($_GET['u'])) {
         </form>
     </div>
     ');
+    }
+} else {
+    
 }
 
 ?>
