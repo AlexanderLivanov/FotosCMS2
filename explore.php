@@ -4,48 +4,6 @@
     <title></title>
     <link rel="stylesheet" href="css/fonts-fix.css">
     <style>
-        .container {
-            padding: 1em;
-            column-count: 5;
-            margin: 0;
-            justify-items: center;
-        }
-
-        img {
-            width: 100%;
-            margin-bottom: 1em;
-
-        }
-
-        @media(max-width: 800px) {
-            .container {
-                column-count: 3;
-            }
-        }
-
-        @media(max-width: 600px) {
-            .container {
-                column-count: 2;
-            }
-        }
-
-        .gallery-item {
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-
-        .gallery-item:hover {
-            border-radius: 5px;
-            scale: 1.1;
-            transition: all 0.3s;
-        }
-
-        .gallery-item:fullscreen {
-            border-radius: 5px;
-            scale: 1;
-            transition: all 0.3s;
-        }
-
         #profile-banner {
             height: auto;
             background-color: grey;

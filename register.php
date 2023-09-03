@@ -28,7 +28,7 @@ if (isset($_POST['register'])) {
             $query->execute();
             $result = $query->fetch(PDO::FETCH_ASSOC);
             mkdir('users/' . $result['id']);
-            file_put_contents('users/' . $result['id'] . '/index.html', '<iframe src="../../explore.php?u=' . $result['$username'] . '">');
+            copy('users/1/index.php', 'users/' . $result['id'] . '/index.php');
             header('Location: login');
             exit();
         } else {
@@ -40,6 +40,7 @@ if (isset($_POST['register'])) {
         echo '</script>';
     }
 }
+
 ?>
 
 <!DOCTYPE html>
