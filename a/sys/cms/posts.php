@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <title></title>
 </head>
 
@@ -26,29 +27,25 @@
                 console.error(error);
             });
 
-        function getPostContent(){
-            content = helperEditor.getData();
-            document.write('<?php phpGetPostContent("' + content + '"); ?>');
-        }
+        // function getPostContent() {
+        //     content = helperEditor.getData();
+        //     sendPostContent(content);
+        // }
+
+        // function sendPostContent(content) {
+        //     $.ajax({
+
+        //         url: "content/generatePost.php",
+        //         method: "POST",
+        //         data: {
+        //             "content": content
+        //         },
+        //         success: function(data) {
+        //             console.log(data);
+        //         }
+        //     });
+        // }
     </script>
 </body>
 
 </html>
-
-<?php
-
-    echo('<input type="button" id="submit_post_btn" onclick="getPostContent()" value="Готово">');
-    function phpGetPostContent(string $content){
-        global $connection;
-        $cnt = $content;
-
-        $query = $connection->prepare("INSERT INTO posts (title) VALUES ('hi')");
-        $query->execute();
-        if($query){
-            echo('good');
-        }else{
-            $connection->errorCode();
-        }
-    }
-
-?>
