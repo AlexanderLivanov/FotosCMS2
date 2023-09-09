@@ -12,7 +12,7 @@ if (isset($_POST['register'])) {
     $query->execute();
 
     if ($query->rowCount() == 0) {
-        $query = $connection->prepare("INSERT INTO users(username,password, registered) VALUES (:username, :password_hash, :tm)");
+        $query = $connection->prepare("INSERT INTO users (username, password, registered) VALUES (:username, :password_hash, :tm)");
         $query->bindParam("username", $username, PDO::PARAM_STR);
         $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
         $query->bindParam("tm", $tm, PDO::PARAM_STR);
