@@ -1,4 +1,4 @@
-# FotosCMS2 (2.1.0)
+# FotosCMS2 (2.4.3)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/AlexanderLivanov/FotosCMS2)
 ![GitHub watchers](https://img.shields.io/github/watchers/AlexanderLivanov/FotosCMS2?style=social)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/AlexanderLivanov/FotosCMS2)
