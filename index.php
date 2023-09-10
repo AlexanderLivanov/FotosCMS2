@@ -12,71 +12,36 @@
 </head>
 
 <body>
-  <?php require_once('a/sys/header.php');
+  <?php 
+  
+  require_once('a/sys/header.php');
   require_once('a/sys/preloader.php');
+
+  require_once('a/sys/cfg.php');
+
+  $query = $connection->prepare("SELECT * FROM posts");
+  $query->execute();
+  $result = $query->fetch(PDO::FETCH_ASSOC);
   ?>
   <div id="wrapper">
     <div class="content">
       <h2>Последние посты</h2>
       <div class="post">
         <div class="post-img">
-          <img src="img/icon.png" class="left-photo" />
+          <div class="post-author">
+            <h4><?php echo $result['user_name'] . ' | ' . $result['pub_date']; ?></h4>
+          </div>
+          <!-- <img src="img/icon.png" class="left-photo" /> -->
           <div class="post-info">
-            <h3>Заголовок поста</h3>
+            <h3><?php echo $result['title']; ?></h3>
             <p class="post-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Suscipit harum officia tempora possimus? Officia a consectetur
-              accusamus reiciendis tempore aut facilis perspiciatis fugit,
-              error corrupti consequatur eum itaque laudantium doloribus.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Tenetur, accusamus, dolorem quis esse commodi totam qui
-              excepturi adipisci architecto ut molestias eveniet quae sit ad!
-              Nihil porro eligendi doloribus eum! Lorem ipsum dolor, sit amet
-              consectetur adipisicing elit. Porro, aspernatur fuga excepturi,
-              nobis unde ratione voluptates rerum sunt at molestias eaque
-              temporibus? Totam nulla nobis pariatur eligendi consectetur quos
-              debitis?
+              <?php echo $result['content']; ?>
             </p>
           </div>
         </div>
       </div>
 
-      <div class="post">
-        <div class="post-img">
-          <img src="img/icon.png" class="left-photo" />
-          <div class="post-info">
-            <h3>Заголовок поста</h3>
-            <p class="post-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Suscipit harum officia tempora possimus? Officia a consectetur
-              accusamus reiciendis tempore aut facilis perspiciatis fugit,
-              error corrupti consequatur eum itaque laudantium doloribus.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Tenetur, accusamus, dolorem quis esse commodi totam qui lol
-              excepturi adipisci architecto ut molestias eveniet quae sit ad!
-              Nihil porro eligendi doloribus eum! Lorem ipsum dolor, sit amet
-              consectetur adipisicing elit. Porro, aspernatur fuga excepturi,
-              nobis unde ratione voluptates rerum sunt at molestias eaque
-              temporibus? Totam nulla nobis pariatur eligendi consectetur quos
-              debitis?
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="post">
-        <div class="post-img">
-          <img src="img/icon.png" class="left-photo" />
-          <div class="post-info">
-            <h3>Заголовок поста 2</h3>
-            <p class="post-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Suscipit harum officia tempora possimus? Officia a consectetur
-              accusamus reiciendis tempore aut facilis perspiciatis fugit,
-              error corrupti consequatur eum itaque laudantium doloribus.
-            </p>
-          </div>
-        </div>
+      
       </div>
     </div>
   </div>

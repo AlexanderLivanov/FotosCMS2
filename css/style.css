@@ -111,6 +111,13 @@ section {
     margin-bottom: 10px;
     padding: 20px;
     text-align: justify;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+
+.post img {
+    width: 100%;
+    height: auto;
 }
 
 .post:last-child {
