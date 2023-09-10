@@ -9,12 +9,6 @@
 
 <footer>
     <div class="footer">
-        <div class="row-social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-youtube"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-        </div>
         <div class="row">Версия: <?php require_once('ver.php'); ?></div>
         <div class="row">
             Работает на <a href="https://github.com/AlexanderLivanov/FotosCMS2">FotosCMS2</a> | &copy; 2020-2023 <br> Идея и разработка - <a href="https://github.com/AlexanderLivanov">Александр Ливанов</a>

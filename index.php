@@ -8,47 +8,52 @@
   <link rel="icon" href="img/icon.png" />
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/search.css">
-<title>FotosWorld</title>
+  <title>FotosWorld</title>
 </head>
 
 <body>
-  <?php 
-  
+  <?php
+
   require_once('a/sys/header.php');
-  require_once('a/sys/preloader.php');
+  //require_once('a/sys/preloader.php');
 
   require_once('a/sys/cfg.php');
 
-  $query = $connection->prepare("SELECT * FROM posts");
+  $query = $connection->prepare("SELECT * FROM `posts`");
   $query->execute();
-  $result = $query->fetch(PDO::FETCH_ASSOC);
+  $result = $query->fetchAll(PDO::FETCH_ASSOC);
   ?>
   <div id="wrapper">
     <div class="content">
       <h2>Последние посты</h2>
-      <div class="post">
-        <div class="post-img">
-          <div class="post-author">
-            <h4><?php echo $result['user_name'] . ' | ' . $result['pub_date']; ?></h4>
-          </div>
-          <!-- <img src="img/icon.png" class="left-photo" /> -->
-          <div class="post-info">
-            <h3><?php echo $result['title']; ?></h3>
-            <p class="post-text">
-              <?php echo $result['content']; ?>
-            </p>
-          </div>
-        </div>
-      </div>
+      <?php
 
-      
-      </div>
+      foreach ($result as $res) {
+        echo ('
+
+          <div class="post">
+            <div class="post-img">
+              <div class="post-author">
+                <h4>' . $res['user_name'] . " | " . $res['pub_date'] . '</h4>
+                </div>
+                <!-- <img src="img/icon.png" class="left-photo" /> -->
+                <div class="post-info">
+                  <h3>' . $res['title'] . '</h3>
+                  <p class="post-text">' . $res['content'] . '</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ');
+      }
+
+      ?>
     </div>
   </div>
 
   <?php require_once('a/sys/footer.php') ?>
 
-  <script>
+  <!-- <script>
     window.onload = function() {
       document.body.classList.add('loaded_hiding');
       window.setTimeout(function() {
@@ -56,7 +61,7 @@
         document.body.classList.remove('loaded_hiding');
       }, 500);
     }
-  </script>
+  </script> -->
 </body>
 
 </html>
