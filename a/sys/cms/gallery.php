@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
     <title></title>
     <style>
         .container {
@@ -386,6 +387,13 @@
                 }
             });
         }
+
+        const observer = lozad('.gallery-img', {
+            rootMargin: '10px 0px', // syntax similar to that of CSS Margin
+            threshold: 0.1, // ratio of element convergence
+            enableAutoReload: true // it will reload the new image when validating attributes changes
+        });
+        observer.observe();
     </script>
 
 </body>
