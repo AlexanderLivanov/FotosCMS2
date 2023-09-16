@@ -360,7 +360,8 @@
             const fileName = name.substring(0, lastDot);
             const ext = name.substring(lastDot + 1);
 
-            if (ext != 'png' && ext != 'jpg' && ext != 'jpeg' && ext != 'gif' && ext != 'svg' && ext != 'mp4') {
+            if (ext != 'png' && ext != 'jpg' && ext != 'jpeg' && ext != 'gif' && ext != 'svg' && ext != 'mp4' &&
+                ext != 'PNG' && ext != 'JPG' && ext != 'JPEG' && ext != 'GIF' && ext != 'SVG' && ext != 'MP4') {
                 Toaster.error('Ошибка: файл ' + name + ' загрузить нельзя');
                 setTimeout(function() {
                     window.location.reload(1);
