@@ -20,7 +20,7 @@
                     <path d="M4 12l16 0"></path>
                     <path d="M4 18l16 0"></path>
                 </svg></span></label>
-        <nav class="nav">
+        <nav class="nav" style="z-index: 10000;">
             <ul class="menu">
                 <li>
                     <a>
