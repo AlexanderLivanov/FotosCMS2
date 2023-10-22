@@ -35,7 +35,6 @@ if (!isset($_FILES[$input_name])) {
             }
         }
     }
-
     foreach ($files as $file) {
         $error = $success = '';
 
