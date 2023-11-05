@@ -75,12 +75,19 @@ $("#js-file").change(function () {
       document.getElementById("publish-button").style.width = "155px";
       document.getElementById("publish-button").style.height = "40px";
     });
-    $.each($("#av-upl")[0].files, function (key, input) {
-      formData.append("file[]", input);
-      imgObj.data = formData;
-      document.getElementById("av-publish-button").style.width = "155px";
-      document.getElementById("av-publish-button").style.height = "40px";
-    });
+  }
+});
+
+$("#av-file").change(function () {
+  if (window.FormData === undefined) {
+    alert("В вашем браузере FormData не поддерживается");
+  } else {
+    getFileNameWithExt(event);
+    var formData = new FormData();
+    formData.append("#av-file", input);
+    imgObj.data = formData;
+    document.getElementById("av-publish-button").style.width = "155px";
+    document.getElementById("av-publish-button").style.height = "40px";
   }
 });
 

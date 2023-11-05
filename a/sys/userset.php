@@ -10,24 +10,26 @@
 </head>
 
 <body>
-    <div class="tab-container" style="text-align: center;">
-        <ul class="tabs">
-            <li><a href="#tab1">Галерея</a></li>
-            <li><a href="#tab2">Записи</a></li>
-            <li><a href="#tab3">Личная информация</a></li>
-            <li style="pointer-events: none;"><a href="#tab3"><i>Скоро...</i></a></li>
-        </ul>
-        <div id="tab1" class="tab-content">
-            <?php require_once('a/sys/cms/gallery.php'); ?>
+    <div id="ROOT">
+        <div class="tab-container" style="text-align: center;">
+            <ul class="tabs">
+                <li><a href="#tab1">Галерея</a></li>
+                <li><a href="#tab2">Записи</a></li>
+                <li><a href="#tab3">Личная информация</a></li>
+                <li style="pointer-events: none;"><a href="#tab3"><i>Скоро...</i></a></li>
+            </ul>
+            <div id="tab1" class="tab-content">
+                <?php require_once('a/sys/cms/gallery.php'); ?>
+            </div>
+            <div id="tab2" class="tab-content">
+                <?php require_once('a/sys/cms/posts.php'); ?>
+            </div>
+            <div id="tab3" class="tab-content">
+                <?php require_once('a/sys/cms/my.php'); ?>
+            </div>
         </div>
-        <div id="tab2" class="tab-content">
-            <?php require_once('a/sys/cms/posts.php'); ?>
-        </div>
-        <div id="tab3" class="tab-content">
-            <?php require_once('a/sys/cms/my.php'); ?>
-        </div>
-    </div>
 
+    </div>
 </body>
 
 </html>
