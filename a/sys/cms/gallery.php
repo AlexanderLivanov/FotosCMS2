@@ -272,7 +272,6 @@
                                 <path d="M14 2a2 2 0 0 1 2 2a1 1 0 0 1 -1.993 .117l-.007 -.117h-4l-.007 .117a1 1 0 0 1 -1.993 -.117a2 2 0 0 1 1.85 -1.995l.15 -.005h4z" stroke-width="0" fill="currentColor"></path>
                                 </svg>
                             </a>
-                            ' . gmdate("d-m-Y H:i:s", $stat['mtime']) . '
                         </div>
                     </div>';
                 }
@@ -283,3 +282,4 @@
 </body>
 
 </html>
+<!--  <h6 id="subtxt">Добавлено' . gmdate("d-m-Y H:i", $stat['mtime']) . '</h6> -->
